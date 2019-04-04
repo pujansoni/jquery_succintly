@@ -1,0 +1,16 @@
+<!-- Notice that when an item in the wrapper set is a text node, we have to extract the value by using .get(0).nodeValue. The contents() method is handy for extracting text node values. It is possible to extract only the text nodes from a DOM structure using contents() -->
+<!DOCTYPE html>
+<html>
+<body>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+	</script>
+	<script> (function($){
+			$('p').find('*').andSelf().contents().filter(function(){
+				return this.nodeType == Node.TEXT_NODE;
+			}).each(function(i, text) {
+				alert(text.nodeValue)
+			});
+		})(jQuery);
+	</script>
+</body>
+</html>

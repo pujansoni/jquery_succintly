@@ -1,0 +1,15 @@
+<!-- Selecting/clearing a single check box or radio button. You can select a radio button or check box by setting its checked attribute to true using the attr() -->
+<!DOCTYPE html>
+<html>
+<body>
+	<input type="checkbox" name="" value="">
+	<input type="radio" name="" value="">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+	</script>
+	<script> (function($){
+			//Set all check boxes or radio buttons to selected.
+			$('input:checkbox, input:radio').attr('checked', 'checked');
+		})(jQuery);
+	</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!-- When attaching events to DOM elements contained in a wrapper set, the keyword this can be used to refer to the current DOM element invoking the event. -->
+<!DOCTYPE html>
+<html>
+<body>
+	<a id="link1">jQuery.com</a>
+	<a id="link2">jQuery.com</a>
+	<a id="link3">jQuery.com</a>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script>
+		(function($){
+			$('a').mouseenter(
+				function() { alert(this.id); });
+		})(jQuery);
+	</script>
+</body>
+</html>
+<!-- In the example above, it is also possible to take the this reference and pass it to the jQuery function so that the DOM element is wrapped with jQuery functionality
+So instead of this:
+alert(this.id);
+We could have done this:
+alert($(this).attr('id'));
+This is possible because the jQuery function not only takes selector expressions, it will also take references to DOM elements. In the code, this is a reference to a DOM element. -->

@@ -1,0 +1,20 @@
+<!-- The shortcut syntax eg: click(), mouseout() and focus() for binding an event handler to a DOM element can also be used to invoke handlers programmatically. To do this, simply use the shortcut event method without passing it a function. -->
+<!DOCTYPE html>
+<html>
+<body>
+	<a>Say Hi</a>
+	<a>Say Hi</a>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+	</script>
+	<script> (function($){
+			$('a').click(function() {
+				alert('hi')
+			}).click();
+		})(jQuery);
+	</script>
+</body>
+</html>
+<!-- It is also possible to use the event trigger() method to invode specific handlers eg: jQuery('a').click(function(){
+	alert('hi')
+}).trigger('click')
+ -->

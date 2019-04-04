@@ -1,0 +1,42 @@
+<!-- jQuery provides filters for filtering a wrapper set by an element's numerical context within the set.
+These filters are:
+-> :first
+-> :last
+-> :even
+-> :odd
+-> :eq(index)
+-> :gt(index)
+-> :lt(index)
+Note: Filters that filter the wrapper set itself do so by filtering elements in the set at a starting point of 0, or index of 0. Ex: :eq(0) and :first access the first element in the set $('div:eq(0)') which is at 0 index. This is in contrast to the nth-child filter that is one-indexed. Meaning, :nth-child(1) will return the first child element, but trying to use :nth-child(0) will not work and will select nothing.
+ -->
+ <!DOCTYPE html>
+ <html>
+ <body>
+ 	<ul>
+ 		<li>1</li>
+ 		<li>2</li>
+ 		<li>3</li>
+ 		<li>4</li>
+ 		<li>5</li>
+ 	</ul>
+ 	<ul>
+ 		<li>6</li>
+ 		<li>7</li>
+ 		<li>8</li>
+ 		<li>9</li>
+ 		<li>10</li>
+ 	</ul>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+	</script>
+	<script> (function($){
+			alert('there are ' + $('li').length + ' elements in the set');
+			//Get me the first element in the set
+			alert($('li:first').text());
+			//Get me the last element in the set
+			alert($('li:last').text());
+			//Get me the 6th element in the set
+			alert($('li:eq(5)').text());
+		})(jQuery);
+	</script> 
+ </body>
+ </html>

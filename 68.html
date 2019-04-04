@@ -1,0 +1,20 @@
+<!-- Grokking event namespacing: Often we will have an object in the DOM that needs to have several functions tied to a single event handler. Ex: let's take the resize handler. Using jQuery we can add as many functions to the window.resize handler as we like. But what happens when we need to remove only one of these functions but not all of them? If we use $(window).unbind('resize'), all functions attached to the window.resize handler will be removed. By namespacing a handler we can assign a unique hook to a specific function for removal. -->
+<!DOCTYPE html>
+<html>
+<body>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+	</script>
+	<script> (function($){
+			$(window).bind('resize', function() {
+				alert('I have no namespace');
+			});
+			$(window).bind('resize.unique', function() {
+				alert('I have a unique namespace');
+			});
+			//Removes only resize.unique function from event handler
+			$(window).unbind('resize.unique');
+		})(jQuery);
+	</script>
+</body>
+</html>
+<!-- In the above code, we add two functions to the resize handler. The second resize event added uses event namespacing and then immediately removes this event using unbind(). I did this to make the point that the first function attached is not removed. Namespacing events gives us the ability to label and remove unique functions assigned to the same handler on a single DOM element. -->

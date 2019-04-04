@@ -1,0 +1,16 @@
+<!-- Before you begin to operate on a wrapper set, it is logical to check that you have in fact selected something. The simplest solution is to use an if statement to check if the wrapper set contains any DOM elements -->
+<!DOCTYPE html>
+<html>
+<body>
+	<a>jQuery</a>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script>
+		if (jQuery('a').get(0)) { //Is there an element in the set?
+			jQuery('a').attr('href', 'http://www.jquery.com');
+		}
+		if (jQuery('a').length) { //Check the length of the set. Can also use .size()
+			jQuery('a').attr('title', 'jQuery');
+		}
+	</script>
+</body>
+</html>

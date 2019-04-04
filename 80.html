@@ -1,0 +1,14 @@
+<!-- Using javascript, you can disable the browser's native right-click menu -->
+<!DOCTYPE html>
+<html>
+<body>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+	</script>
+	<script> (function($){
+			$(document).bind('contextmenu', function(){
+				return false;
+			});
+		})(jQuery);
+	</script>
+</body>
+</html>

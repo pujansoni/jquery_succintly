@@ -1,0 +1,16 @@
+<!-- Iterating over a set of elements contained in the jQuery wrapper set is somewhat similar to the concept in example 10.html file. By using the jQuery each() method, we can iterate over each DOM element contained in a wrapper set. This allows access to each DOM element individually, via the usage of the this keyword. -->
+<!DOCTYPE html>
+<html>
+<body>
+	<a id="link1">jQuery.com</a>
+	<a id="link2">jQuery.com</a>
+	<a id="link3">jQuery.com</a>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script>
+		(function($){
+			$('a').each(function() { 
+				alert($(this).attr('id')); });
+		})(jQuery);
+	</script>
+</body>
+</html>

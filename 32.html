@@ -1,0 +1,66 @@
+<!-- The :nth-child() filter has many uses. -->
+<!DOCTYPE html>
+<html>
+<body>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+		<li>6</li>
+		<li>7</li>
+		<li>8</li>
+		<li>9</li>
+		<li>10</li>
+	</ul>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+	</script>
+	<script> (function($){
+		//Remember that text() combines the contents of all elements in the wrapper set into a single string.
+		//By index
+		alert($('li:nth-child(1)').text()); //Alerts '1'
+		//By even
+		alert($('li:nth-child(even)').text()); //Alerts '246810'
+		//By odd
+		alert($('li:nth-child(odd)').text()); //Alerts '13579'
+		alert($('li:nth-child(3n)').text()); //Alerts '369'
+		alert($('li:nth-child(0)').text()); //Alerts nothing. There is no 0 index
+	})(jQuery);
+	</script>
+</body>
+</html>
+<!-- 
+Extending jQuery selector properties:
+1) You might want to add a new ':inline' selector which will return those elements that are displayed inline
+ex: 
+$.extend($.expr[':'], {
+	inline: function(a) {
+		return $(a).css('display') === 'inline';
+	}
+});
+
+Using the above code, when you want to select elements that are displayed inline you can simply include it within the selector
+ex:
+$(':inline');	//Selects all inline elements
+$('a:inline');	//Selects all inline anchors
+
+2) Loading images selector: You might want to add a 'loaded' selector which will work with images, and will return those images that are loaded
+ex:
+//Flag images upon load
+$('img').load(function(){
+	$(this).data('loaded', true);
+});
+//Extend expr:
+$.extend($.expr[':'], {
+	loaded: function(a) {
+		return $(a).data('loaded');
+	}
+});
+//Example of usage
+alert('Images loaded so far: ' + $('img:loaded').size());
+
+Refer:
+https://j11y.io/javascript/extending-jquerys-selector-capabilities/
+For more examples...
+ -->

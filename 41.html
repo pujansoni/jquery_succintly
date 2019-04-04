@@ -1,0 +1,14 @@
+<!-- It is important to note that when creating DOM structures using the jQuery function, only root elements in the structure are added to the wrapper set. -->
+<!DOCTYPE html>
+<html>
+<body>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+	</script>
+	<script> (function($){
+			alert($('<div><a></a></div>').get(0).nodeName); //Alerts "DIV"
+			alert($('<div><a></a></div>').length); //Alerts 1 div is in the wrapper set
+			alert($('<div><a></a></div><div><a></a></div>').length); //Alerts 2 div in the set.
+		})(jQuery);
+	</script>
+</body>
+</html>

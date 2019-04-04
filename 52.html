@@ -1,0 +1,14 @@
+<!-- To enable a disabled form element, we simply remove the disabled attribute using removeAttr() or set the disabled attribute value to be empty using attr() -->
+<!DOCTYPE html>
+<html>
+<body>
+	<input name="button" type="button" id="button" value="Click me" disabled="disabled">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+	</script>
+	<script> (function($){
+			$('#button').removeAttr('disabled');
+			//or set $('#button').attr('disabled', '');
+		})(jQuery);
+	</script>
+</body>
+</html>

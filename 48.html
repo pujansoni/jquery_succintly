@@ -1,0 +1,21 @@
+<!-- The .contents() method can be used to find all the child element nodes, including text nodes contained inside of an element. However there is a catch. If the retrieved contents contain only text nodes, the selection will be placed inside the wrapper set as a single text node. However, if the contents you are retrieving have one or more element nodes amongst the text nodes, then the .contents() method will contain text nodes and element nodes. -->
+<!DOCTYPE html>
+<html>
+<body>
+	<p>I love using jQuery</p>
+	<p>I love <strong>really</strong> using jQuery</p>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+	</script>
+	<script> (function($){
+			//Alerts 'I love using jQuery'
+			alert($('p:first').contents().get(0).nodeValue);
+			//Alerts 'I love'
+			alert($('p:last').contents().get(0).nodeValue);
+			//Alerts 'really'
+			alert($('p:last').contents().eq(1).text());
+			//Alerts 'using jQuery'
+			alert($('p:last').contents().get(2).nodeValue);
+		})(jQuery);
+	</script>
+</body>
+</html>

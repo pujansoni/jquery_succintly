@@ -1,0 +1,49 @@
+<!-- You can easily traverse up the DOM to ancestor elements using the parent(), parents() and closest() methods. Understanding the differences between the methods is critical. Examine the code below and make sure you understand the differences between these jQuery traversing methods. -->
+<!DOCTYPE html>
+<html>
+<body>
+	<div id="parent2">
+		<div id="parent1">
+			<div id="parent0">
+				<div id="start"></div>
+			</div>
+		</div>
+	</div>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+	</script>
+	<script> (function($){
+			//Alert parent0
+			alert($('#start').parent().attr('id'));
+			alert($('#start').parents('#parent0').attr('id'));
+			alert($('#start').parents()[0].id);
+			//Gets actual DOM element
+			alert($('#start').closest('#parent0').attr('id'));
+			//Alert parent1
+			alert($('#start').parent().parent().attr('id'));
+			alert($('#start').parents('#parent1').attr('id'));
+			alert($('#start').parents()[1].id);
+			//Gets actual DOM element
+			alert($('#start').closest('#parent1').attr('id'));
+			//Alert parent2
+			alert($('#start').parent().parent().parent().attr('id'));
+			alert($('#start').parents('#parent2').attr('id'));
+			alert($('#start').parents()[2].id);
+			//Gets acutual DOM element
+			alert($('#start').closest('#parent2').attr('id'));
+		})(jQuery);
+	</script>
+</body>
+</html>
+<!-- closest() and parents() might appear to have the same functionality, but closest() will actually include the currently selected element in its filtering.
+closest() stops traversing once it finds a match, whereas parents() gets all parents and then filters on your optional selector. Therefore, closest() can only return a maximum of one element. -->
+<!-- Traversing methods accept CSS expressions as optional:
+CSS expressions are not only passed to the jQuery function for selecting elements, but they can also be passed to several of the traversing methods. It might be easy to forget this because many of the traversing methods function without having to use any expression at all. eg: next(). The expression is optional for the following traversal methods, but remember that you have the option of providing an expression for filtering:
+children('expression')
+next('expression')
+nextAll('expression')
+parent('expression')
+parents('expression')
+prev('expression')
+prevAll('expression')
+siblings('expression')
+closest('expression') -->

@@ -1,0 +1,17 @@
+<!-- As mentioned before, not all jquery methods maintain the chain. Methods like text() can be chained when used to set the text node of an element. However, text() actually breaks the chain when used to get the text node contained within an element.
+Getting the text contained within an element using text() is a prime example of a broken chain because the method will return a string containing the text node, but not the jQuery wrapper set.
+It should be no surprise that if a jQuery method does not return the jQuery wrapper set, the chain is thereby broken. This method is considered to be destructive. -->
+<!DOCTYPE html>
+<html>
+<body>
+	<p></p>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script>
+		(function($){
+			var theText = $('p').text('jQuery').text(); //returns the string jQuery
+			alert(theText);
+			//Cannot chain after text() as it returns the string and not the wrapper element
+		})(jQuery)
+	</script>
+</body>
+</html>

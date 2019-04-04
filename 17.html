@@ -1,0 +1,16 @@
+<!-- In the code below, the wrapper set contains all <div> elements in the page, but the attr() method only returns the id value of the first element contained in the wrapper set. -->
+<!DOCTYPE html>
+<html>
+<body>
+	<div id="div1">I am a div</div>
+	<div id="div2">I am a div</div>
+	<div id="div3">I am a div</div>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script>
+		(function($){
+			//Alerts attribute value for first element in wrapper set.
+			alert($('div').attr('id')); //Alerts 'div1'
+		})(jQuery);
+	</script>
+</body>
+</html>

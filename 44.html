@@ -1,0 +1,16 @@
+<!-- You can determine the index of an element in the wrapper set by passing that element to the index() method. Ex: suppose you have a wrapper set containing all the <div> elements in the web page, and you would like to know the index of the last <div> element. -->
+<!DOCTYPE html>
+<html>
+<body>
+	<div>0</div>
+	<div>1</div>
+	<div>2</div>
+	<div>3</div>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+	</script>
+	<script> (function($){
+			alert($('div').index($('div:last')));
+		})(jQuery);
+	</script>
+</body>
+</html>

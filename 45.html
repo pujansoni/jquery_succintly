@@ -1,0 +1,23 @@
+<!-- The use of index() does not really hit home until we consider how it can be used with events. Ex: by clicking the <div> elements in the code below, we can pass the clicked <div> element -->
+<!DOCTYPE html>
+<html>
+<body>
+	<div id="nav">
+		<div>nav text</div>
+		<div>nav text</div>
+		<div>nav text</div>
+		<div>nav text</div>
+	</div>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+	</script>
+	<script> (function($){
+			//Alert index of the clicked div amongst all div's in the wrapper set
+			$('#nav div').click(function(){
+				alert($('#nav div').index(this));
+				//Or a nice trick
+				alert($(this).prevAll().length);
+			});
+		})(jQuery);
+	</script>
+</body>
+</html>

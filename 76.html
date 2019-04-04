@@ -1,0 +1,20 @@
+<!-- With jQuery, you have the ability to manufacture your own custom events using the bind() method. This is done by providing the bind() method with a unique name for a custom event. Now because these events are custom and not known to the browser, the only way to invoke custom events is to programmatically trigger then using the jQuery trigger() method. -->
+<!DOCTYPE html>
+<html>
+<body>
+	<div>jQuery</div>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+	</script>
+	<script> (function($){
+			$('div').bind('myCustomEvent', function(){
+				//Bind a custom event to <div>
+				window.location = 'http://www.jquery.com';
+			});
+			$('div').click(function(){
+				//Click the <div> to invoke the custom event
+				$(this).trigger('myCustomEvent');
+			});
+		})(jQuery);
+	</script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!-- Returning false is the equivalent of using both preventDefault() and stopPropagation() -->
+<!DOCTYPE html>
+<html>
+<body>
+	<span><a href="javascript:alert('You clicked me')" class="link">click me</a></span>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+	</script>
+	<script> (function($){
+			$('a').click(function(){
+				//Ignore clicks on <a>
+				return false;
+			});
+		})(jQuery);
+	</script>
+</body>
+</html>
+<!-- If you were to comment out the return false statement in the above code, alert() would get invoked because by default the browser will execute the value of the href attribute. Also the page would navigate to jQuery.com due to event bubbling. -->

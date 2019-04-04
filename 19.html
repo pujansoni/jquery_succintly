@@ -1,0 +1,17 @@
+<!-- The selector engine will return results in document order as opposed to the order in which the selectors were passed in. The wrapper set will be populated with the selector elements based on the order each element appears in the document, form top to bottom -->
+<!DOCTYPE html>
+<html>
+<body>
+	<h1>h1</h1>
+	<h2>h2</h2>
+	<h3>h3</h3>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script>
+		(function($){
+			//We pass in h3 first, but h1 appears earlier in the document, so it is first in the wrapper set.
+			alert($('h3, h2, h1').get(0).nodeName);
+			//alerts 'h1'
+		})(jQuery);
+	</script>
+</body>
+</html>

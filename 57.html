@@ -1,0 +1,21 @@
+<!-- We can determine if a checkbox input or radio button input is selected or cleared by using the :checked form filter. -->
+<!DOCTYPE html>
+<html>
+<body>
+	<input checked="checked" type="checkbox" />
+	<input checked="checked" type="radio" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+	</script>
+	<script> (function($){
+			//alerts true
+			alert($('input:checkbox').is(':checked'));
+			//Or, added to wrapper set if checked. Alerts 1
+			alert($('input:checkbox:checked').length);
+			//alerts true
+			alert($('input:radio').is(':checked'));
+			//Or, added to wrapper set if checked. Alerts 1
+			alert($('input:radio:checked').length);
+		})(jQuery);
+	</script>
+</body>
+</html>

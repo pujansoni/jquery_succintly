@@ -1,0 +1,29 @@
+<!-- For the sake of demonstration, assume your goal is acutally to get the id attribute value for each element on the page. You could write three separate jQuery statements accessing each <div> element id attribute. It would look like:
+$("#div1").attr('id');
+$("#div2").attr('id');
+$("#div3").attr('id');
+or something like:
+var $divs = $('div')
+$divs.eq(0).attr('id');
+$divs.eq(1).attr('id');
+$divs.eq(2).attr('id');
+In the example below, I use the $().each() method to loop over the wrapper set, access each element in the set, and then extract its id attribute value -->
+<!DOCTYPE html>
+<html>
+<body>
+	<div id="div1">div1</div>
+	<div id="div2">div2</div>
+	<div id="div3">div3</div>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script>
+		(function($){
+			//3 alerts, one for each div
+			$('div').each(function(){
+				//this is each element in the wrapper set.
+				alert($(this).attr('id'));
+				//could also be written alert(this.id)
+			});
+		})(jQuery);
+	</script>
+</body>
+</html>

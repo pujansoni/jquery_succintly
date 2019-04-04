@@ -1,0 +1,23 @@
+<!-- Cancel event propagation with stopProgagation(). Events propagate up the DOM. When an event handler is fired for any given element, the invoked event handler is also invoked for all ancestor elements. This default behavior facilitates solutions like event delegation. To prohibit this default bubbling, you can use the jQuery normalized event method stopPropagation(). -->
+<!DOCTYPE html>
+<html>
+<body>
+	<div><span>stop</span></div>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+	</script>
+	<script> (function($){
+			$('div').click(function(event){
+				//Attach click handler to <div>
+				alert('You clicked the outer <div>');
+			});
+			$('span').click(function(event){
+				//Attach click handler to <span>
+				alert('You clicked a span inside of a <div> element');
+				//Stop click on <span> from progagation to <div>
+				//If you comment out the line below, the click event attached to the <div> will also be invoked.
+				event.stopPropagation();
+			})
+		})(jQuery);
+	</script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!-- It is often necessary to determine if the selected set of element does, in fact, contain a specific element. Using the is() method, we can check the current set against an expression/filter. The check will return true if the set contains at least one element that is selected by the given expression/filter. If it does not contain the element, a false value is returned. -->
+ <!DOCTYPE html>
+<html>
+<body>
+	<div id="i0">jQuery</div>
+	<div id="i1">jQuery</div>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script>
+		(function($){
+			//Returns true
+			alert($('div').is('#i1'));
+			//Returns false. Wrapper set contains no <div> with id="i2"
+			alert($('div').is('#i2'));
+			//Returns false. Wrapper set contains no hidden <div>
+			alert($('div').is(':hidden'));
+		})(jQuery);
+	</script>
+</body>
+</html>
+<!-- The is() method is quite handy for determining if the wrapper set contains a specific element. Some developers use is('.class') to determine if an element has a specific class. Do not forget that jQuery already has a method for doing this called hasClass('class'), which can be used on elements that contain more than one class value. But truth be told, hasClass() is just a convenient wrapper for the is() method. -->

@@ -1,0 +1,31 @@
+<!-- While there are numreous plugins for scrolling the browser window, doing so can be trivial when a simple scroll is required. By setting the scrollTop CSS property on the <html> and <body> elements, it is possible to control the position of the horizontal or vertical scrolling. In the code below we use the animate() method to animate the horizontal scrolling to a specific element in the page -->
+<!DOCTYPE html>
+<html>
+<body>
+	<style>
+		li
+		{
+			padding-bottom: 500px;
+		}
+	</style>
+	<ul>
+		<li><a href="#" class="next">Next</a></li>
+		<li><a href="#" class="next">Next</a>/<a href="#" class="prev">Previous</a></li>
+		<li><a href="#" class="next">Next</a>/<a href="#" class="prev">Previous</a></li>
+		<li><a href="#" class="prev">Previous</a></li>
+	</ul>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+	</script>
+	<script> (function(){
+			$('.next').click(function(){
+				$('html, body').animate({
+					scrollTop: $(this).parent().next().find('a').offset().top }, 1000);
+			});
+			$('.prev').click(function(){
+				$('html, body').animate({
+					scrollTop: $(this).parent().prev().find('a').offset().top }, 1000);
+			});
+		})(jQuery);
+	</script>
+</body>
+</html>

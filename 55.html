@@ -1,0 +1,14 @@
+<!-- To clear a radio button or check box, simply remove the checked attribute using the removeAttr() method or set the checked attribute value to an empty string -->
+<!DOCTYPE html>
+<html>
+<body>
+	<input type="checkbox" value="Test1" checked="checked" name="">
+	<input type="radio" value="Test2" checked="checked" name="">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+	</script>
+	<script> (function($){
+		$('input').removeAttr('checked');
+		})(jQuery);
+	</script>
+</body>
+</html>

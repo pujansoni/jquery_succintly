@@ -1,0 +1,45 @@
+<!-- Using destructive jQuery methods and exiting destruction using end():
+jQuery methods that alter the original jQuery wrapper set selected are considered to be destructive. The reason is that they do not maintain the original state of the wrapper set. Not to worry, nothing is really destroyed or removed. Rather, the former wrapper set is attached to a new set.
+However, fun with chaining does not hve to stop once the original wrapped set is altered. Using the end() method, you can back out of any destructive changes made to the original wrapper set. Examing the usage of end() in the example below:- -->
+<!DOCTYPE html>
+<html>
+<body>
+	<style>
+		.last
+		{
+			background: #900;
+		}
+	</style>
+	<ul id="list">
+		<li></li>
+		<li>
+			<ul>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</li>
+		<li></li>
+		<li></li>
+	</ul>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script>
+		(function($){
+			$('#list')	//Original wrapper set
+				.find('> li')	//Destructive method.
+					.filter(':last')	//Destructive method.
+						.addClass('last')
+					.end()	//End .filter(':last').
+					.find('ul')	//Destructive method.
+						.css('background', '#ccc')
+						.find('li:last')	//Destructive method
+							.addClass('last')
+						.end()	//End .find('li:last')
+					.end()	//End .find('ul')
+				.end()	//End .find('> li')
+				.find('li')	//Back to the original $('#list')
+					.append('I am an &lt;li&gt;');
+		})(jQuery);
+	</script>
+</body>
+</html>

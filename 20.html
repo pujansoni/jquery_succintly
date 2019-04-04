@@ -1,0 +1,16 @@
+<!-- The default context used by the jQuery function when selecting DOM elements is the document element(eg: ('a', document)). This means that if you do not provide the jQuery function with a second parameter to be used as the context for the DOM query, the default context used is the document element, more commonly know as <body>. It is possible to determine the context in which the jQuery function is performing a DOM query by using the context property. -->
+<!DOCTYPE html>
+<html>
+<body>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script>
+		(function($) {
+			//Alerts 'object HTMLDocument' in firefox
+			//Same as $('a', document).context;
+			alert($('a').context);
+			//Alerts 'object HTMLDivElement' in firefox
+			alert($('a', $('#context')[0]).context);
+		})(jQuery);
+	</script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<!-- Creating an alias by renaming the jQuery object itself: jQuery provides the noConflict() method, which has several uses -- namely, the ability to replace $ with another alias. This can be helpful in three ways: It can relinquish the use of the $ sign to another library, help avoid potential conflicts, and provide the ability to customize the namespace/alias for the jQuery object. -->
+<!DOCTYPE html>
+<html>
+<body>
+	<div>Hello, user</div>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script>
+		var pujan = jQuery.noConflict();
+		//Do something with jquery methods.
+		alert(pujan('div').text());
+	</script>
+</body>
+</html>
+<!-- By passing the noConflick() function a Boolean value of true, you can completely undo what jQuery has introduced into the web page. This should only be used in the extreme cases because it will, more than likely cause issues with jQuery plugins. -->

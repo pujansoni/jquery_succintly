@@ -1,0 +1,17 @@
+<!-- Using the handy live() event method, you can bind handlers to DOM elements currently in a web page and those that have yet to be added. The live() method uses event delegation to make sure that newly added/created DOM elements will always respond to event handlers regardless of DOM manipulations or dynamic changes to the DOM. Using live() is essentially a shortcut for manually having to set up event delegation. -->
+<!DOCTYPE html>
+<html>
+<body>
+	<button>Add another button</button>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+	</script>
+	<script> (function($){
+			$('button').live('click', function(){
+				$(this).after('<button>Add another button</button>');
+			});
+		})(jQuery);
+	</script>
+</body>
+</html>
+<!-- After examining the code, it should be obvious that we are using live() to apply event delegation to a parent element so that any button element added to the DOM always responds to the click handler.
+To remove the live element, we simply use the die() method. eg: $('button').die() -->

@@ -1,0 +1,16 @@
+<!-- jQuery normalizes the event object. Event object attributes: event.type, event.target, event.data, event.relatedTarget, event.currentTarget, event.pageX, event.pageY, event.result, event.timeStamp
+Event object methods: event.preventDefault(), event.isDefaultPrevented(), event.stopPropagation(), event.isPropagationStopped(), event.stopImmediatePropagation(), event.isImmediatePropagationStopped() -->
+<!-- To access the normalized jQuery event object, simply pass the anonymous function, passed to a jQuery event method a parameter named 'event'. Then inside of the anonymous callback function use the parameter to access the event object -->
+<!DOCTYPE html>
+<html>
+<body>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+	</script>
+	<script> (function($){
+			$(window).load(function(event) {
+				alert(event.type);
+			});
+		})(jQuery);
+	</script>
+</body>
+</html>

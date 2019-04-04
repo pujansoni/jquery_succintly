@@ -1,0 +1,37 @@
+<!-- Not limited to a single ready() event. It is important to keep in mind that you can declare as many custom ready() event as you would like. You are not limited to attaching a single .ready() event to the document. The ready() events are executed in the order that they are included.
+Note: Passing the jQuery function, eg: jQuery(function() {}) is a shortcut for jQuery(document).ready();
+Attaching/removing events using bind() and unbind(): Using the bind() method. Eg: jQuery('a').bind('click', function(){}) you can add any of the following standart handlers to the appropriate DOM elements:
+blur, mousemove, focus, mouseover, load, mouseout, resize, change, scroll, select, unload, submit, beforeunload, keydown, click, keypress, dblclick, keyup, mousedown, error, mouseup
+In addition to this list of standard handlers, you can also leverage bind() to attach jQuery custom handlers. eg: mouseenter and mouseleave as well as any custom handlers you may create. To remove standard handlers or custom handlers, we simply pass the unbind() method the handler name or custom handler name that needs to be removed. Eg: jQuery('a').unbind('click'). If no parameters are passed to unbind(), it will remove all handlers attached to an element.
+ -->
+ <!DOCTYPE html>
+ <html>
+ <body>
+ 	<input type="text" value="Click Me" />
+ 	<br />
+ 	<br />
+ 	<button>remove events</button>
+ 	<div id="log" name="log"></div>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+	</script>
+	<script> (function($){
+			//Bind events
+			$('input').bind('click', function() {
+				alert('You clicked me!');
+			});
+			$('input').bind('focus', function() {
+				//alert and focus events are a recipe for an endless list of dialogs we will log instead
+				$('#log').html("You focused this input!");
+			});
+			//Unbind events
+			$('button').click(function() {
+				//Using shortcut binding via click()
+				$('input').unbind('click');
+				$('input').unbind('focus');
+			});
+		})(jQuery);
+	</script> 
+ </body>
+ </html>
+<!-- jQuery provides several shortcuts to the bind() method for use with all standard DOM events, which excludes custom jQuery events like mouseenter and mouseleave. Using these shortcuts simply involves substituting the event's name as the method name. eg: click(), mouseout(), focus().
+You can attach unlimited handlers to a single DOM element using jQuery. jQuery provides the one() event handling method to conveniently bind an event to DOM elements that will be executed once and then removed. The one() method is just a wrapper for bind() and unbind(). -->

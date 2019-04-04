@@ -1,0 +1,24 @@
+<!-- Difference between selecting direct children vs all descendants: Direct children only can be selected by using the combiner > or by way of the children() traversing method. All descendants can be selected by using the * CSS expression. Make sure you clearly understand the difference between the two. -->
+<!DOCTYPE html>
+<html>
+<body>
+	<div>
+		<p><strong><span>text</span></strong></p>
+		<p><strong><span>text</span></strong></p>
+	</div>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+	</script>
+	<script> (function($){
+			//Each statement alerts 2 because there are two direct child <p> elements inside of <div>
+			alert($('div').children().length);
+			//Or
+			alert($('>*', 'div').length);
+			alert($('div').find('>*').length);
+			//Each statement alerts 6 because the <div> contains 6 descendants, not including the text node.
+			alert($('div').find('*').length);
+			//Or
+			alert($('*', 'div').length);
+		})(jQuery);
+	</script>
+</body>
+</html>

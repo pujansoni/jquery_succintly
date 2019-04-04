@@ -1,0 +1,16 @@
+<!-- Setting/getting text contained within a <textarea>. -->
+<!DOCTYPE html>
+<html>
+<body>
+	<textarea></textarea>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+	</script>
+	<script> (function($){
+			//Set the text contained within.
+			$('textarea').val('I am a textarea');
+			//Alerts text
+			alert($('textarea').val());
+		})(jQuery);
+	</script>
+</body>
+</html>

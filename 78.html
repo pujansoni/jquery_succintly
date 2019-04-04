@@ -1,0 +1,16 @@
+<!-- By attaching a mousemove event to the entire page, you can retrieve the X and Y coordinates of the mouse pointer as it moves around inside in the viewport over the canvas. THis is done by retrieving the pageY and pageX properties of the jQuery normalized event object. -->
+<!DOCTYPE html>
+<html>
+<body>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+	</script>
+	<script> (function($){
+			$(document).mousemove(function(e){
+				// e.pageX - gives you the X position
+				// e.pageY - gives you the Y position
+				$('body').html('e.pageX = ' + e.pageX + ', e.pageY = ' + e.pageY);
+			})
+		})(jQuery);
+	</script>
+</body>
+</html>

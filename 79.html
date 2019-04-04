@@ -1,0 +1,18 @@
+<!-- It if often necessary to get the X and Y coordinates of the mouse pointer relative to an element other than the viewport or entire document. This is usually done with Tooltips -->
+<!DOCTYPE html>
+<html>
+<body>
+	<div style="margin: 200px; height: 100px; width: 100px; background: #ccc; padding: 20px">relative to this </div>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+	</script>
+	<script> (function($){
+		$('div').mousemove(function(e){
+		 	var relativeX = e.pageX - this.offsetLeft;
+		 	var relativeY = e.pageY - this.offsetTop;
+		 	$(this).html('relativeX = ' + relativeX + ', relativeY = ' + relativeY);
+		})
+
+		})(jQuery);
+	</script>
+</body>
+</html>

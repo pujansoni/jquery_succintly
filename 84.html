@@ -1,0 +1,16 @@
+<!-- Inside a plugin this is a reference to the current jQuery object. -->
+<!DOCTYPE html>
+<html>
+<body>
+	<div id="counter1"></div>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+	</script>
+	<script> (function($){
+			alert(this);
+			alert(this[0]);
+			alert(this[0].id);
+		})(jQuery);
+		jQuery('#counter1').count();
+	</script>
+</body>
+</html>

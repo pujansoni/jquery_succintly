@@ -1,0 +1,24 @@
+<!-- By default, cloning DOM structures using the clone() method does not additionally clone the events attached to the DOM elements being cloned. In order to clone the elements and the events attached to the elements you must pass the clone() method a Boolena value of true. -->
+<!DOCTYPE html>
+<html>
+<body>
+	<button>Add another button</button>
+	<a href="#" class="clone">Add another link</a>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+	</script>
+	<script> (function($){
+			$('button').click(function(){
+				var $this = $(this);
+				$this.clone(true).insertAfter(this);
+				//Clone element and its events
+				$this.text('button').unbind('click');
+			});
+			$('.clone').click(function(){
+				var $this = $(this);
+				$this.clone().insertAfter(this);
+				$this.text('link').unbind('click');
+			})
+		})(jQuery);
+	</script>
+</body>
+</html>

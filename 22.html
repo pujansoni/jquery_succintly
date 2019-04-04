@@ -1,0 +1,21 @@
+<!-- It is not necessary to provide an actual element in conjunction with a filter, such as $('div:hidden'). It is also possible to simply pass the filter alone, anywhere a selector expression is expected. 
+//Selects all hidden elements
+$(':hidden');
+//Selects all div elements, then selects only even elements
+$('div').filter(':even');
+ Grokking the :hidden and :visible filter: The custom jQuery selector filters :hidden and :visible do not take into account the CSS visibility property as one might expect. The way jQuery determines if an element is hidden or visible is if the element consumes any space in the document. To be exact, an element is visible if its browser reported offsetWidth or offsetHeight is greater than 0. That way, an element that might have a CSS display value of block contained in an element with a display value of none would accurately report that it is not visible.-->
+ <!DOCTYPE html>
+<html>
+<body>
+	<div id="parentDiv" style="display: none;">
+		<div id="childDiv" style="display: block;">
+	</div>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script>
+		(function($){
+			//Returns true because the parent div is hidden, so the encapsulated div reports zero offsetWidth and offsetHeight.
+			alert($('#childDiv').is(':hidden'));
+		})(jQuery);
+	</script>
+</body>
+</html>

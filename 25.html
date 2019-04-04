@@ -1,0 +1,15 @@
+<!-- It is possible to determine if your expression has selected anything by checking if the wrapper set has a length. You can do so by using the array property length. If the length property does not return 0, then you know at least one element matches the expression you passed to the jQuery function. -->
+<!DOCTYPE html>
+<html lang="en">
+<body>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+	</script>
+	<script>
+		(function($){
+			//Alerts '0'
+			alert($('#notHere').length);
+		})(jQuery);
+	</script>
+</body>
+</html>
+<!-- It is not obvious, the length property can also report the number of elements in the wrapper set ie: how many elements were selected by the expression passed to the jQuery function. -->

@@ -1,0 +1,16 @@
+<!-- You can determine if a form element is hidden using the :hidden form filter. -->
+<!DOCTYPE html>
+<html>
+<body>
+	<input type="hidden" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+	</script>
+	<script> (function($){
+			//alerts true
+			alert($('input').is(':hidden'));
+			//Or, added to wrapper set if hidden. Alerts 1
+			alert($('input:hidden').length);
+		})(jQuery);
+	</script>
+</body>
+</html>

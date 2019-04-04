@@ -1,0 +1,14 @@
+<!-- Hopefully, it is obvious that if you have an HTML page with three empty <div> elements, the following jQuery statement will select all three elements on the page, iterate over the three elements and will insert the respective text() -->
+<!DOCTYPE html>
+<html>
+<body>
+	<div></div>
+	<div></div>
+	<div></div>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script>
+		$('div').text('I am a div');
+	</script>
+</body>
+</html>
+<!-- This is considered implicit iteration because jQuery code assumes you would like to manipulate all three elements which requires iterating over the elements selected and setting the text node value of each <div> with the text. When this is done by default, it is referred to as implicit iteration. This is pretty handy. For the most part, the majority of the jQuery methods will apply implicit iteration. However, other methods will only apply to the first element in the wrapper set. For example, the jQuery method attr() will only access the first element in the wrapper set when used to get an attribute value. When using the attr() method to set an attribute, jQuery will acutally apply implicit iteration to set the attribute and its value to all the element in the wrapper set. -->

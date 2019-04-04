@@ -1,0 +1,13 @@
+<!-- When you use remove(), a DOM snippet from the DOM the elements contained in the removed DOM structure are still contained within the wrapper set. You could remove an element, operate on that element, and then actually place that element back in the DOM, all within a single jQuery chain -->
+<!DOCTYPE html>
+<html>
+<body>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+	</script>
+	<script> (function($){
+			$('div').remove().html('<a href="http://www.jQuery.com">jQuery</a>').appendTo('body');
+		})(jQuery);
+	</script>
+</body>
+</html>
+<!-- The point here is that just because you remove() elements does not mean they are removed from the jQuery wrapper set. -->

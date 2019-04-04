@@ -1,0 +1,17 @@
+<!-- The get() method provides a slick solution for placing all the DOM elements into a native array. By simply calling the get() method without passing it an index parameter, the method will return all of the DOM elements in the wrapper set in a native JavaScript array. -->
+<!DOCTYPE html>
+<html>
+<body>
+	<a href="http://www.jquery.com" title="anchor1">jQuery.com</a>
+	<a href="http://www.jquery.com" title="anchor2">jQuery.com</a>
+	<a href="http://www.jquery.com" title="anchor3">jQuery.com</a>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script>
+		(function($){
+			var arrayOfAnchors = $('a').get(); //Create native array from wrapper set
+			alert(arrayOfAnchors[2].title); //Alerts the third link.
+		})(jQuery);
+	</script>
+</body>
+</html>
+<!-- Using get() will end jQuery's chaining. It will take the wrapper set and change it into a simple array of DOM elements that are no longer wrapped with jQuery funcitonality. Therefore, using the .end() method cannot restore chaining after .get() -->

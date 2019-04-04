@@ -1,0 +1,19 @@
+<!-- Setting/getting the selected option of a select element: Using the val() method, you can set the selected value of a <select> element by passing the val() method a string representing the value assigned to the <option> element. To get the value of the <select> element, use the val() method again to determine which option is selected. The val() method in this scenario will return the selected option's attribute value. -->
+<!DOCTYPE html>
+<html>
+<body>
+	<select id="s" name="s">
+		<option value="option1">option one</option>
+		<option value="option2">option two</option>
+	</select>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+	</script>
+	<script> (function($){
+			//Set the selected option in the select element to "option two"
+			$('select').val('option2');
+			//Alerts "option2"
+			alert($('select').val());
+		})(jQuery);
+	</script>
+</body>
+</html>

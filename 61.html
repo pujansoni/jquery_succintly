@@ -1,0 +1,22 @@
+<!-- Setting/getting selected options of a multi-select element: Using the val() method, you can set the selected values of a multi-select element by passing the val() method an array containing the corresponding values. To get the selected options in a multi-select element, we again use the val() method to retrieve an array of the options that are selected. The array will contain the value attributes of the selected options. -->
+<!DOCTYPE html>
+<html>
+<body>
+	<select size="4" multiple="multiple">
+		<option value="option1">option one</option>
+		<option value="option2">option two</option>
+		<option value="option3">option three</option>
+		<option value="option4">option four</option>
+		<option value="option5">option five</option>
+	</select>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+	</script>
+	<script> (function($){
+			//Set the value of the selected options.
+			$('select').val(['option2', 'option4']);
+			//Get the selected values
+			alert($('select').val().join(', ')); //Alert "option2, option4"
+		})(jQuery);
+	</script>
+</body>
+</html>
