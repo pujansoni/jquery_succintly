@@ -1,0 +1,20 @@
+<!-- It if often necessary to stop an animation currently in progress before starting another. To achieve this, simply use the stop() method to stop the current animation before starting a new one. -->
+<!DOCTYPE html>
+<html>
+<body>
+	<div style="height: 100px; width: 100px; background-color: red; position: absolute; left: 20px;">Try to hover over me! </div>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+	</script>
+	<script> (function($){
+			$('div').hover(function(){
+				$(this).stop().animate({left: 75}, 'fast');
+			},
+			function() {
+				$(this).stop().animate({left: 20}, 'fast');
+			});
+		})(jQuery);
+	</script>
+</body>
+</html>
+<!-- Remove the stop methods from the code and roll the mouse over the element several times to see the ghost animations occur. -->
+<!-- Additionally, it is possible to not only stop the current animation in the queue for the select element but also the entire queue by passing the stop() method a parameter of true. This will effectively stop all queued animations, active and inactive -->

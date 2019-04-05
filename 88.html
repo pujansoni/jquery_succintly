@@ -1,0 +1,27 @@
+<!-- Typically the default options can be overwritten with custom options. In the code below we pass in a customOptions object as a parameter to the plugin function. This object is combined with the defaultOptions object to create a single options object. We use the jQuery utility method extend() to combine multiple objects into a single object. The extend() method provides the perfect functionality for overwriting an object with new properties. -->
+<!DOCTYPE html>
+<html>
+<body>
+	<div id="counter1"></div>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+	</script>
+	<script> (function($){
+			$.fn.count = function(customOptions){
+				//Create new option, extend object with defaultOptions and customOptions
+				var options = $.extend({}, $.fn.count.defaultOptions, customOptions);
+				return this.each(function(){
+					var $this = $(this);
+					$this.text(options.startCount + '');
+					var myInterval = window.setInterval(function(){
+						var currentCount = parseFloat($this.text());
+						var newCount = currentCount + 1;
+						$this.text(newCount + '');
+					}, 1000);
+				});
+			};
+			$.fn.count.defaultOptions = { startCount: 100 };
+		})(jQuery);
+		jQuery('#counter1, #counter2').count({ startCount: 500 });
+	</script>
+</body>
+</html>

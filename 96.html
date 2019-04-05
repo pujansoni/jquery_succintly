@@ -1,0 +1,25 @@
+<!-- Using the animate() method you can set animations to occur non-sequentially or at the same time by passing all the CSS property changes to a single animate() method call. In the code below the <div> will animate its width and border left width at the same time -->
+<!DOCTYPE html>
+<html>
+<body>
+	<div style="height: 100px; width: 100px; background-color: red;"></div>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+	</script>
+	<script> (function($){
+			// Both width and borderLeftWidth properties will animate simultaneously
+			$('div').animate({width: '200px', borderLeftWidth: '10px'}, 1000);
+		})(jQuery);
+	</script>
+</body>
+</html>
+<!-- 
+Animate() is the base low-level abstraction:
+The animate() method is the base method that is used to construct all the pre-configured animations eg: hide(), slideDown(). It provides the ability to change the values of style properties.
+Here is what you need to know when using this method:
+i) Only properties that take numeric values are supported. In other words, you can't animate the value of say, the backgroundColor property(At least not without a plugin). Also, properties that take more than one value like backgroundPosition can not be animated.
+ii) You can animate CSS properties by using em and % where applicable.
+iii) Relative animations can be specified using '+=' or '-=' in front of the property value. This would for example, move an element positively or negatively to its current position.
+iv) If you specify an animation duration of 0, the animation will immediately set the elements to their end state.
+v) As a shortcut, if a value of toggle is passed, an animation will simply reverse from where it is and animate to that end.
+vi) All CSS properties set via a single animate() method will animate at the same time.
+ -->

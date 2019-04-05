@@ -1,16 +1,15 @@
-<!-- Using each() to iterate over the jQuery object and provide a reference to each element in the object using the this keyword -->
+<!-- Plugins typically contain default options that will act as the baseline default configuration for the plugins logic. These options are used when the plugin is invoked. -->
 <!DOCTYPE html>
 <html>
 <body>
 	<div id="counter1"></div>
-	<div id="counter2"></div>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
 	</script>
 	<script> (function($){
 			$.fn.count = function(){
-				this.each(function(){
+				return this.each(function(){
 					var $this = $(this);
-					$this.text('0');
+					$this.text($.fn.count.defaultOptions.startCount + '');
 					var myInterval = window.setInterval(function(){
 						var currentCount = parseFloat($this.text());
 						var newCount = currentCount + 1;
@@ -18,6 +17,7 @@
 					}, 1000);
 				});
 			};
+			$.fn.count.defaultOptions = { startCount: 100 };
 		})(jQuery);
 		jQuery('#counter1, #counter2').count();
 	</script>

@@ -1,0 +1,25 @@
+<!-- Typically, most plugins return the jQuery object itself so that the plugin does not break the chain. In other words, if a plugin does not specifically need to return a value, it should countinue the chain so that additional methods can be applied. -->
+<!DOCTYPE html>
+<html>
+<body>
+	<div id="counter1"></div>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+	</script>
+	<script> (function($){
+			$.fn.count = function(){
+				return this.each(function(){
+					var $this = $(this);
+					$this.text('0');
+					var myInterval = window.setInterval(function(){
+						var currentCount = parseFloat($this.text());
+						var newCount = currentCount + 1;
+						$this.text(newCount + '');
+					}, 1000);
+				});
+			};
+		})(jQuery);
+		jQuery('#counter1, #counter2').count().parent().append('<p>Chaining still works</p>');
+	</script>
+</body>
+</html>
+<!-- It is possible to make the plugin a destructive method by simply not returning the jQuery object. -->

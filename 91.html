@@ -1,0 +1,15 @@
+<!-- It is possible to disable all of the animating methods jQuery provides by simply setting the value of the off property to true -->
+<!DOCTYPE html>
+<html>
+<body>
+	<div style="height: 100px; width: 100px; background-color: red; position: absolute; left: 20px;">Try to animate me! </div>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+	</script>
+	<script> (function($){
+			jQuery.fx.off = true;
+			$('div').slideUp();
+		})(jQuery);
+	</script>
+</body>
+</html>
+<!-- When off is set to true, all the effect methods will not animate and will instead be hidden and shown immediately using the CSS rules display:none and display:block. You can turn the animation back on by passing the off property a false value. -->
